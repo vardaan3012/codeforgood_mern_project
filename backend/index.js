@@ -22,6 +22,8 @@ app.use('/api', require('./routes/upload'))
 // // Available Routes
 // app.use('/api/auth', require('./routes/auth'))
 // app.use('/api/notes', require('./routes/notes'))
+// routes
+app.use('/api/auth', require('./routes/auth'));
 
 app.listen(PORT, () => {
   console.log(`iNotebook backend listening at http://localhost:${PORT}`)
