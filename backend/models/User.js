@@ -34,10 +34,6 @@ const UserSchema = new Schema({
     isAdmin: {
         type: Boolean,
         default: false
-    },
-    isOffline: {
-        type: Boolean,
-        default: false
     }
   });
   const User = mongoose.model('user', UserSchema);

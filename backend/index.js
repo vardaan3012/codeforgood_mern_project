@@ -19,6 +19,7 @@ app.use(cors())
 app.use(express.json())
 app.use('/api', require('./routes/upload'))
 app.use('/api/course', require('./routes/course'))
+app.use('/api/verify', require('./routes/verify'))
 
 // // Available Routes
 // app.use('/api/auth', require('./routes/auth'))

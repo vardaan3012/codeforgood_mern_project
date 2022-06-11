@@ -2,13 +2,19 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const CourseSchema = new Schema({
-    name:{
+    name: {
         type: String,
         required: true
     },
-    description:{
+    description: {
         type: String,
-        required : true
+        required: true
+    },
+    location: {
+        type: String,
+    },
+    timing: {
+        type: String,
     },
     course_links: [
         {
@@ -18,15 +24,12 @@ const CourseSchema = new Schema({
     user_id: [
         { type: mongoose.Schema.Types.ObjectId, ref: 'user' }
     ],
-    date:{
+    date: {
         type: Date,
         default: Date.now
     },
-    isoffline:{
-        type: Boolean,
-        default: false
-    }
-  });
-  
-  const Course = mongoose.model('Course', CourseSchema);
-  module.exports = Course;
+});
+
+const Course = mongoose.model('Course', CourseSchema);
+module.exports = Course;
+
