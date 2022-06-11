@@ -39,7 +39,7 @@ function App() {
 
   return (
     <div className="contanier">
-     <UserState>
+      <UserState>
         <Router>
           <Navbar />
           <Alert alert={alert} />
@@ -60,19 +60,19 @@ function App() {
               <UploadCourse />
             </Route>
             <Route exact path="/verification">
-              <Verification/>
+              <Verification />
             </Route>
             <Route exact path="/products" >
               <Products />
             </Route>
             <Route exact path="/achievement" >
-              <Achievement/>
+              <Achievement />
             </Route>
             <Route exact path="/enroll" >
-              <Enrollform/>
+              <Enrollform />
             </Route>
             <Route exact path="/applyloans" >
-              <ApplyLoan/>
+              <ApplyLoan />
             </Route>
           </Switch>
         </Router>
