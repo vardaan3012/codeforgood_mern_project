@@ -29,25 +29,9 @@ router.post('/enroll', fetchuser, async (req, res) => {
     const userId = req.user.id;
     const courseId = req.body.courseId;
     try {
-        const course = await Course.findById(courseId);
-        if (!course) {
-            return res.status(404).json({ msg: 'Course not found' });
-        }
-        const user = await User.findById(userId);
-        if (!user) {
-            return res.status(404).json({ msg: 'User not found' });
-        }
-        if (user.courses.includes(courseId)) {
-            return res.status(400).json({ msg: 'User already enrolled' });
-        }
 
-        // updating the user object
-        user.course_id.push(courseId);
-        await user.save();
-
-        // updating the course object
-        course.user_id.push(userId);
-        await course.save();
+        await User.findByIdAndUpdate(userId, { $push: { course_id: courseId } });
+        await Course.findByIdAndUpdate(courseId, { $push: { user_id: userId } });
 
         res.json({ msg: 'User enrolled' });
     } catch (err) {

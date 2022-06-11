@@ -1,7 +1,8 @@
 const express = require('express');
- const fetchuser = require('../middleware/fetchuser');
+const fetchuser = require('../middleware/fetchuser');
 const { body, check, validationResult } = require('express-validator');
 const User = require('../models/User');
+const Course = require('../models/Course');
 
 const cloudinary = require('../config/cloudinary');
 const upload = require('../uploads/multer');
@@ -16,7 +17,7 @@ const router = express.Router();
 // @access  Private
 router.post(
     '/documents',
-     fetchuser,
+    fetchuser,
     upload.array('image'),
     async (req, res) => {
         console.log("request reached");
@@ -26,7 +27,7 @@ router.post(
             return res.status(400).json({ errors: errors.array() });
         }
 
-         const userId = req.user.id; //From auth middleware decoded from token 
+        const userId = req.user.id; //From auth middleware decoded from token 
 
         const uploader = async (path) => await cloudinary.uploads(path, "SkillsRoot");
 
@@ -41,7 +42,7 @@ router.post(
         }
 
 
-        
+
 
         let images = [];
         for (const url of urls) {
@@ -62,6 +63,32 @@ router.post(
             console.error(err.message);
             res.status(500).send('Server Error!');
         }
+    }
+);
+
+
+// create a course
+// @route   POST /api/courses
+// @desc    Create a course
+// @access  Private
+router.post(
+    '/courseCreate',
+    fetchuser, async (req, res) => {
+        const { name,
+            description,
+            location,
+            timing } = req.body;
+
+        const userId = req.user.id; //From auth middleware decoded from token
+
+        const newCourse = new Course({
+            name,
+            description,
+            location,
+            timing
+        });
+
+        await newCourse.save();
     }
 );
 
