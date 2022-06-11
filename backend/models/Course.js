@@ -16,8 +16,13 @@ const CourseSchema = new Schema({
         }
     ],
     user_id: [
-        { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
-    ]
+        { type: mongoose.Schema.Types.ObjectId, ref: 'user' }
+    ],
+    date:{
+        type: Date,
+        default: Date.now
+    }
   });
+  
   const Course = mongoose.model('Course', CourseSchema);
   module.exports = Course;
