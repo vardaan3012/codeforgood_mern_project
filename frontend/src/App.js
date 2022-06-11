@@ -11,9 +11,9 @@ import UserState from "./context/users/userState";
 import Products from './components/pages/Products';
 import Enrollform from './components/enrollmentform';
 import Achievement from './components/Achievement.js';
-import ApplyLoan from "./components/ApplyLoan";
-import UploadCourse from "./components/UploadCourse";
-import Verification from "./components/Verification";
+import UploadCourse from './components/upload';
+import ApplyLoan from './components/ApplyLoan';
+import Verification from './components/Verification';
 function App() {
   //alert 
 
