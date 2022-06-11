@@ -71,7 +71,7 @@ router.post('/login', [
   const { email, password } = req.body;
   try {
     
-    if(email === "Admin@gmail.com" && password === "Admin123")
+    if(email === "Admin@skillroot.com" && password === "Admin123")
     {
       Admin = true;
       success = true;
@@ -88,7 +88,7 @@ router.post('/login', [
       let user = await User.findOne({ email });
       if (!user) {
         success = false
-        return res.status(400).json({ error: "Email id or password is wrong" });
+        return res.status(400).json({ error: "username does not exist" });
       }
   
       const passwordCompare = await bcrypt.compare(password, user.password);

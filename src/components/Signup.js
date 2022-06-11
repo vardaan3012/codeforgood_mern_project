@@ -31,7 +31,10 @@ export default function Signup(props) {
         setcredential({ ...credential, [e.target.name]: e.target.value });
     }
     return (
+       
+        <div className="container my-4" >
         <div className="container my-4" style={{width:"50%"}}>
+        <h2>Signup</h2>
            <form onSubmit={handleSubmit}>
            <label htmlFor="name">Name</label>
         <input
@@ -75,6 +78,7 @@ export default function Signup(props) {
         </button>
         </div>
       </form>
+        </div>
         </div>
     )
 }

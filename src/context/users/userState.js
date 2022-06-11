@@ -7,7 +7,7 @@ const UserState=(props)=>{
 
      const logOut=()=>{
         localStorage.removeItem('token');
-       
+        setadmin(false);
         }
 
      const isadmin = (isThere) =>{

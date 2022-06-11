@@ -5,7 +5,7 @@ import userContext from "../context/users/userContext";
 
 export default function Login(props) {
   const context = useContext(userContext);
-   const { isadmin,logOut } = context;
+   const { isadmin } = context;
     let history=useHistory();
   const [credential, setcredential] = useState({ email: "", password: "" });
   const onChange = (e) => {
@@ -47,7 +47,7 @@ export default function Login(props) {
     <>
    <div className='container'>
     <div className="container my-4" style={{ width: "50%" }}>
-     <h2>Login And Store Unlimited Notes</h2>
+     <h2>Login</h2>
       <form onSubmit={handleSubmit}>
         <label htmlFor="email">Email address</label>
         <input
