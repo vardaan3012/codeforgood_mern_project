@@ -8,6 +8,12 @@ import Login from "./components/Login";
 import Alert from './components/Alert';
 import DashBoard from "./components/DashBoard";
 import UserState from "./context/users/userState";
+import Products from './components/pages/Products';
+import Enrollform from './components/enrollmentform';
+import Achievement from './components/Achievement.js';
+import ApplyLoan from "./components/ApplyLoan";
+import UploadCourse from "./components/UploadCourse";
+import Verification from "./components/Verification";
 function App() {
   //alert 
 
@@ -49,6 +55,24 @@ function App() {
             </Route>
             <Route exact path="/dashboard">
               <DashBoard />
+            </Route>
+            <Route exact path="/courseupload">
+              <UploadCourse />
+            </Route>
+            <Route exact path="/verification">
+              <Verification/>
+            </Route>
+            <Route exact path="/products" >
+              <Products />
+            </Route>
+            <Route exact path="/achievement" >
+              <Achievement/>
+            </Route>
+            <Route exact path="/enroll" >
+              <Enrollform/>
+            </Route>
+            <Route exact path="/applyloans" >
+              <ApplyLoan/>
             </Route>
           </Switch>
         </Router>

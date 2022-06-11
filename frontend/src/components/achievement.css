@@ -1,0 +1,12 @@
+.card{
+    width: 18rem;
+
+
+    margin: 4rem;
+}
+
+.container-fluid{
+    display: flex;
+    flex-direction: row;
+    /* overflow: hidden; */
+}

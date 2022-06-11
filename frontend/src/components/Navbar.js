@@ -29,15 +29,23 @@ export default function Navbar() {
           <Link className={`nav-link ${location.pathname==='/'?'active':''} `} aria-current="page" to="/">Home</Link>
         </li>
         {!admin && localStorage.getItem('token') && <li className="nav-item">
-          <Link className={`nav-link ${location.pathname==='/'?'active':''} `} aria-current="page" to="/Quiz">temp11</Link>
+          <Link className={`nav-link ${location.pathname==='/'?'active':''} `} aria-current="page" to="/products">Courses</Link>
         </li>}
         {!admin && localStorage.getItem('token') &&<li className="nav-item">
-          <Link className={`nav-link ${location.pathname==='/'?'active':''} `} aria-current="page" to="/LeaderBoard">temp2</Link>
+          <Link className={`nav-link ${location.pathname==='/'?'active':''} `} aria-current="page" to="/achievement">Achievements</Link>
+        </li>}
+        {!admin && localStorage.getItem('token') &&<li className="nav-item">
+          <Link className={`nav-link ${location.pathname==='/'?'active':''} `} aria-current="page" to="/applyloans">Apply Loan</Link>
         </li>}
         {admin && localStorage.getItem('token') &&<li className="nav-item">
           <Link className={`nav-link ${location.pathname==='/'?'active':''} `} aria-current="page" to="/DashBoard">DashBoard</Link>
         </li>}
-       
+        {admin && localStorage.getItem('token') &&<li className="nav-item">
+          <Link className={`nav-link ${location.pathname==='/'?'active':''} `} aria-current="page" to="/verification">Verification</Link>
+        </li>}
+        {admin && localStorage.getItem('token') &&<li className="nav-item">
+          <Link className={`nav-link ${location.pathname==='/'?'active':''} `} aria-current="page" to="/courseupload">Create Course</Link>
+        </li>}
       </ul>
       
       {
