@@ -1,7 +1,6 @@
 import React,{ useEffect} from "react";
 import { useHistory } from 'react-router';
 
-
 export default function Home(props) {
   let  history=useHistory();
   useEffect(() => {
@@ -14,9 +13,7 @@ export default function Home(props) {
 }, [])
   return (
     <div>
-
-        <h1>this is home page</h1>
-      
+      this is home page
     </div>
   );
 }
