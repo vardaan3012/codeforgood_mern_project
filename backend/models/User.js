@@ -2,20 +2,20 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const UserSchema = new Schema({
-    name:{
+    name: {
         type: String,
         required: true
     },
-    email:{
+    email: {
         type: String,
         required: true,
         unique: true
     },
-    password:{
+    password: {
         type: String,
         required: true
     },
-    date:{
+    date: {
         type: Date,
         default: Date.now
     },
@@ -27,14 +27,18 @@ const UserSchema = new Schema({
             type: String
         }
     ],
-    isVerified:{
+    isVerified: {
         type: Boolean,
         default: false
     },
-    isAdmin:{
+    isAdmin: {
         type: Boolean,
-        default:false
+        default: false
+    },
+    isOffline: {
+        type: Boolean,
+        default: false
     }
-  });
-  const User = mongoose.model('User', UserSchema);
-  module.exports = User;
+});
+const User = mongoose.model('user', UserSchema);
+module.exports = User;

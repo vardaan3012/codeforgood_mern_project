@@ -48,8 +48,8 @@ router.post(
             images.push(url.url);
         }
 
-        console.log(urls);
-
+        console.log(images);
+        // done working
 
         try {
             const user = await User.findById(userID);
