@@ -1,5 +1,5 @@
 const express = require('express');
-// const auth = require('../middleware/auth');
+// const auth = require('../middleware/fetchuser');
 const { body, check, validationResult } = require('express-validator');
 const User = require('../models/User');
 
@@ -16,7 +16,7 @@ const router = express.Router();
 // @access  Private
 router.post(
     '/documents',
-    // auth,
+    // fetchuser,
     upload.array('image'),
     async (req, res) => {
         console.log("request reached");

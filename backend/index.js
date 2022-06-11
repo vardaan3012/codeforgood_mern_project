@@ -1,7 +1,7 @@
 require('dotenv').config();
 const connectToMongo = require('./db');
 const express = require('express')
-var cors = require('cors') 
+var cors = require('cors')
 
 const path = require('path');
 const bodyParser = require('body-parser');
@@ -18,6 +18,7 @@ app.use(bodyParser.json());
 app.use(cors())
 app.use(express.json())
 app.use('/api', require('./routes/upload'))
+app.use('/api/course', require('./routes/course'))
 
 // // Available Routes
 // app.use('/api/auth', require('./routes/auth'))
