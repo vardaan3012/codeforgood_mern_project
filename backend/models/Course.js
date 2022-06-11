@@ -21,6 +21,10 @@ const CourseSchema = new Schema({
     date:{
         type: Date,
         default: Date.now
+    },
+    isoffline:{
+        type: Boolean,
+        default: false
     }
   });
   
