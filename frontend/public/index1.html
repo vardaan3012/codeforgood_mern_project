@@ -1,0 +1,104 @@
+<html>
+  <head>
+    <title>Matplotlib</title>
+    <meta charset="utf-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+    <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+    <py-env>
+      - matplotlib
+    </py-env>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div id="pie"></div>
+                </div>
+                <div class="col">
+                    <div id="line"></div>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col">
+                    <div id="bar"></div>
+                </div>
+                <div class="col">
+                    <div id="donut"></div>
+                </div>
+
+                <div class="card" style="width: 400px;">
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item" style="background-color:cadetblue; size:40px;padding:30px;color:white;margin: 10px;">Volunteers Available 5000</li>
+                      <li class="list-group-item" style="background-color:forestgreen; size:40px;padding:30px;color:white;margin: 10px;">Rural Areas Reached 250 </li>
+                      <li class="list-group-item" style="background-color:darkorchid; size:40px;padding:30px;color:white;margin: 10px;">Connected Organizations 300</li>
+                      <li class="list-group-item" style="background-color:darkkhaki; size:40px;padding:30px;color:white;margin: 10px;">People Impacted 75000</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+      <py-script output="pie">
+        import matplotlib.pyplot as plt
+        import numpy as np
+        y = np.array([20000, 55000])
+        mylabels = ["Online", "Offline"]
+        explode = (0.05, 0.05)
+        plt.pie(y, labels = mylabels, shadow = True, explode = explode)
+        plt.legend(title="Course Mode")
+        plt
+      </py-script>
+      <py-script>
+        plt.close()
+      </py-script>
+
+      <py-script output="line">
+        import matplotlib.pyplot as plt
+        import numpy as np
+        years = np.arange(2011, 2023)
+        p = [1000, 3500, 4000, 5800, 6300, 6500, 6900, 7200, 8400, 8800, 5000, 6000]
+        plt.xlabel("Years")
+        plt.ylabel("Number of people taking courses")
+        plt.plot(years, p, marker="o")
+        plt.xticks(range(2011, 2023))
+        plt
+      </py-script>
+      <py-script>
+        plt.close()
+      </py-script>
+
+      <py-script output="bar">
+        import matplotlib.pyplot as plt
+        import numpy as np
+        x = np.array(["Mumbai", "Chennai", "UP", "MP", "Bihar", "Punjab"])
+        y = np.array([2000, 3000, 4800, 6600, 7800, 4000])
+        plt.barh(x, y)
+        plt
+      </py-script>
+      <py-script>
+        plt.close()
+      </py-script>
+
+      <py-script output="donut">
+        import matplotlib.pyplot as plt
+        sizes = [28000, 36000]
+        labels = ["Job", "Entrepreneurship"]
+        explode = (0.05, 0.05)
+        colors = ["green", "purple"]
+        plt.pie(sizes, colors = colors, pctdistance=0.85, explode=explode)
+        centre_circle = plt.Circle((0, 0), 0.70, fc='white')
+        fig = plt.gcf()
+        fig.gca().add_artist(centre_circle)
+        plt.legend(labels, loc="upper right", title="Paths Choosen")
+        plt
+      </py-script>
+    </body>
+</html>

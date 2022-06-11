@@ -5,8 +5,9 @@ import Carousel from 'react-bootstrap/Carousel';
 
 
 function Disloan() {
+    
   return (
-    <div className="Demo">
+    <div className="Demo container ">
     
         <Form>
         <h1>Loan Application Form</h1>
@@ -29,7 +30,7 @@ function Disloan() {
             <Form.Label>Pan Card</Form.Label><br></br>
             <Form.Control type="file" multiple />
         </Form.Group>
-        <Button variant="warning">Submit</Button>{' '}
+        <Button variant="warning">Send For Verification</Button>{' '}
         
         </Form>
     </div>

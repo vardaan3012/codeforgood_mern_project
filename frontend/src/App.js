@@ -6,7 +6,7 @@ import Home from "./components/Home";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
 import Alert from './components/Alert';
-import DashBoard from "./components/DashBoard";
+// import DashBoard from "./components/DashBoard";
 import UserState from "./context/users/userState";
 import Products from './components/pages/Products';
 import Enrollform from './components/enrollmentform';
@@ -53,9 +53,9 @@ function App() {
             <Route exact path="/signup">
               <Signup alert={showAlert} />
             </Route>
-            <Route exact path="/dashboard">
+            {/* <Route exact path="/dashboard">
               <DashBoard />
-            </Route>
+            </Route> */}
             <Route exact path="/courseupload">
               <UploadCourse />
             </Route>
