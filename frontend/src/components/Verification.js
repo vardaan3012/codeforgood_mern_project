@@ -7,6 +7,7 @@ import './ApplyLoan.css'
 function Disloan() {
 
   const [data, setdata] = useState(null);
+  const [verify, setverify] = useState("Not Verified");
 
   const fetchdata = () => {
     fetch('http://localhost:8000/api/toverify', {
@@ -44,12 +45,14 @@ function Disloan() {
       .then(data => {
         console.log(data);
         fetchdata();
-        alert("Documents Verified!");
+        // alert("Documents Verified!");
+        setverify("Verified");
       }
       )
       .catch(err => {
         console.log(err);
-        alert("Documents Verified!");
+        // alert("Documents Verified!");
+        setverify("Verified");
       }
       );
 
@@ -57,7 +60,8 @@ function Disloan() {
 
   const handleReject = (e) => {
     e.preventDefault();
-    alert("Request is Rejected");
+    setverify("Rejected");
+    // alert("Request is Rejected");
   }
 
   return (
@@ -73,7 +77,7 @@ function Disloan() {
               <ul key={key}>
                 <p><b>Name: </b>  {val.name}</p>
                 <p><b>Email: </b> {val.email}</p>
-                <p><b>Status: </b>  {val.isVerified ? "Verified" : "Not Verified"}</p>
+                <p><b>Status: </b>  {verify}</p>
                 <p><b>Documents Links: </b></p>
                 <p>{val.documents[0]}</p>
                 <p>{val?.documents[1]}</p>
