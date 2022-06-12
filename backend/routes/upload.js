@@ -91,4 +91,27 @@ router.post(
 );
 
 
+
+// fetch all users whose document is not null and whose isVerified is false
+// @route   GET /api/toverify
+// @desc    Get all verification requests
+// @access  Private
+
+router.get('/toverify', fetchuser, async (req, res) => {
+    try {
+        const users = await User.find({
+            $and: [
+                { documents: { $ne: null } },
+                { isVerified: false }
+            ]
+        });
+        res.json(users);
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send('Server Error!');
+    }
+}
+);
+
+
 module.exports = router;

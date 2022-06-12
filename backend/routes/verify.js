@@ -15,12 +15,15 @@ router.post('/', fetchuser, async (req, res) => {
     const userId = req.user.id;
 
     try {
+        console.log("request reached");
+
         const user = await User.findById(userId);
-        if (!user) {
-            return res.status(404).json({ msg: 'User not found' });
-        }
-        user.isVerified = true;
+        user.verified = true;
         await user.save();
+
+
+        // User.findByIdAndUpdate(userId, { isVerified: true });
+
         res.json({ msg: 'Verification status changed' });
     } catch (err) {
         console.error(err.message);
