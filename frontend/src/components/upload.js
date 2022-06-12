@@ -35,6 +35,7 @@ function Upload() {
 			.then(response => response.json())
 			.then(data => {
 				console.log(data);
+				alert("Course created successfully");
 			}
 			)
 			.catch(err => {

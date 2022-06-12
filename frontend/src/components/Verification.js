@@ -1,16 +1,18 @@
 import React from 'react';
-import {Form, Button} from 'react-bootstrap';
+import { Form, Button } from 'react-bootstrap';
 import './ApplyLoan.css'
 
 const data = [
   { name: "Anom", age: 19, gender: "Male" },
   { name: "Megha", age: 19, gender: "Female" },
-  { name: "Subham", age: 25, gender: "Male"},
+  { name: "Subham", age: 25, gender: "Male" },
 ]
 
-  function Disloan() {
-    return (
-      <div className="Disloan">
+function Disloan() {
+  return (
+    <div className="">
+      <h1 style={{ "marginTop": "20px" }}>Verification Requests </h1>
+      <div className="Disloan container" style={{ "marginTop": "100px" }}>
         <table>
           <tr>
             <th>Name</th>
@@ -36,7 +38,9 @@ const data = [
           })}
         </table>
       </div>
-    );
-  }
-    
-  export default Disloan;
+    </div>
+
+  );
+}
+
+export default Disloan;

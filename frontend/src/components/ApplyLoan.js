@@ -10,26 +10,28 @@ function ApplyLoan() {
         <div className="Demo container ">
 
             <Form>
-                <h1>Loan Application Form</h1>
-                <Form.Group className="mb-3" controlId="formGroupName" >
-                    <Form.Label>Name</Form.Label><br></br>
-                    <Form.Control type="name" placeholder="Enter name" />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="formGroupEmail">
-                    <Form.Label>Email address</Form.Label><br></br>
-                    <Form.Control type="email" placeholder="Enter email" />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="formGroupAddress">
-                    <Form.Label>Address</Form.Label><br></br>
-                    <Form.Control type="address" placeholder="Enter address" />
-                </Form.Group>
+                <h1>Document Verification</h1>
+                <div className="container d-flex flex-column justify-begin" >
+                    <p>List of mandatory documents to be collected from candidates keenly interested to
+                        apply for Loan -</p>
+
+                    <li> Aadhar card</li>
+                    <li> Pan Card </li>
+                    <li> Photo</li>
+                    <li> Bank pAssbook copy / Bank Account Number, Bank Name, Branch Name, District </li>
+                    <li> Any ongoing Loan - Yes / NO</li>
+                    <li> Amount of Loan required -s </li>
+                    <li> Social Category (SC/OBC/ST/Minority) </li>
+                    <li> Gender</li>
+                </div>
+
+
                 <Form.Group controlId="formFileMultiple" className="mb-3">
-                    <Form.Label>Adhaar Card</Form.Label><br></br>
-                    <Form.Control type="file" multiple />
-                </Form.Group><Form.Group controlId="formFileMultipledoc" className="mb-3">
-                    <Form.Label>Pan Card</Form.Label><br></br>
+                    <Form.Label className='d-flex align-start'> <b>Upload All your Documents</b> </Form.Label><br></br>
                     <Form.Control type="file" multiple />
                 </Form.Group>
+
+
                 <Button variant="warning">Send For Verification</Button>{' '}
 
             </Form>
