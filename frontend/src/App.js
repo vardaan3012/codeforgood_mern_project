@@ -14,6 +14,7 @@ import Achievement from './components/Achievement.js';
 import UploadCourse from './components/upload';
 import ApplyLoan from './components/ApplyLoan';
 import Verification from './components/Verification';
+import ApplyTrainer from "./components/ApplyTrainer";
 function App() {
   //alert 
 
@@ -58,6 +59,9 @@ function App() {
             </Route> */}
             <Route exact path="/courseupload">
               <UploadCourse />
+            </Route>
+            <Route exact path="/applytrainer">
+              <ApplyTrainer />
             </Route>
             <Route exact path="/verification">
               <Verification />

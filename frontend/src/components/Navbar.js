@@ -39,6 +39,9 @@ export default function Navbar() {
               {!admin && localStorage.getItem('token') && <li className="nav-item">
                 <Link className={`nav-link ${location.pathname === '/' ? 'active' : ''} `} aria-current="page" to="/applyloans">Apply Loan</Link>
               </li>}
+              {!admin && localStorage.getItem('token') && <li className="nav-item">
+                <Link className={`nav-link ${location.pathname === '/' ? 'active' : ''} `} aria-current="page" to="/applytrainer">Apply as trainer</Link>
+              </li>}
               {admin && localStorage.getItem('token') && <li className="nav-item">
                 <a className={`nav-link ${location.pathname === '/' ? 'active' : ''} `} aria-current="page" href={process.env.PUBLIC_URL + "index1.html"}>DashBoard</a>
               </li>}
