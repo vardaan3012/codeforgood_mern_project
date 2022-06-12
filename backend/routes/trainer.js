@@ -16,7 +16,7 @@ const router = express.Router();
 // @desc    Add a new trainer
 // @access  Private
 router.post(
-    '/trainer',
+    '/',
     fetchuser,
     upload.array('image'),
     async (req, res) => {
@@ -60,6 +60,9 @@ router.post(
                 sector: sector,
                 documents: images,
             });
+
+            // await newTrainer.save();
+
             res.json("Trainer Application sent!");
 
         }
