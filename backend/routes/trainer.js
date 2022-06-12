@@ -1,8 +1,7 @@
 const express = require('express');
 const fetchuser = require('../middleware/fetchuser');
 const { body, check, validationResult } = require('express-validator');
-const User = require('../models/User');
-const Course = require('../models/Course');
+
 const Trainer = require('../models/Trainer');
 
 const cloudinary = require('../config/cloudinary');
@@ -11,13 +10,13 @@ const fs = require('fs');
 
 const router = express.Router();
 
-//  TO Upload User Docs
 
-// @route   POST /api
-// @desc    User docs
+// route for adding new trainer applicant
+// @route   POST /api/trainer
+// @desc    Add a new trainer
 // @access  Private
 router.post(
-    '/documents',
+    '/trainer',
     fetchuser,
     upload.array('image'),
     async (req, res) => {
@@ -28,7 +27,7 @@ router.post(
             return res.status(400).json({ errors: errors.array() });
         }
 
-        const userId = req.user.id; //From auth middleware decoded from token 
+        const userId = req.user.id; //From auth middleware decoded from token
 
         const uploader = async (path) => await cloudinary.uploads(path, "SkillsRoot");
 
@@ -42,56 +41,33 @@ router.post(
             fs.unlinkSync(path);
         }
 
-
-
-
         let images = [];
         for (const url of urls) {
             images.push(url.url);
         }
 
+        const { mobileNumber, gender, sector } = req.body;
+
         console.log(images);
         // done working
 
         try {
-            const user = await User.findById(userID);
-            user.documents = images;
-            await user.save();
+            // ccreate a new trainer
+            const newTrainer = new Trainer({
+                user_id: userId,
+                mobileNumber: mobileNumber,
+                gender: gender,
+                sector: sector,
+                documents: images,
+            });
+            res.json("Trainer Application sent!");
 
-            res.json({ msg: "Documents Uploaded Successfully" });
-
-        } catch (err) {
-            console.error(err.message);
-            res.status(500).send('Server Error!');
+        }
+        catch (err) {
+            console.log(err);
+            res.json(err);
         }
     }
 );
-
-
-// create a course
-// @route   POST /api/courses
-// @desc    Create a course
-// @access  Private
-router.post(
-    '/courseCreate',
-    fetchuser, async (req, res) => {
-        const { name,
-            description,
-            location,
-            timing } = req.body;
-
-        const userId = req.user.id; //From auth middleware decoded from token
-
-        const newCourse = new Course({
-            name,
-            description,
-            location,
-            timing
-        });
-
-        await newCourse.save();
-    }
-);
-
 
 module.exports = router;
