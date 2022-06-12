@@ -28,7 +28,7 @@ router.post(
             return res.status(400).json({ errors: errors.array() });
         }
 
-        const userId = req.user.id; //From auth middleware decoded from token 
+        const userID = req.user.id; //From auth middleware decoded from token 
 
         const uploader = async (path) => await cloudinary.uploads(path, "SkillsRoot");
 
@@ -41,9 +41,6 @@ router.post(
             urls.push(newPath); // cloudinary path appended to urls
             fs.unlinkSync(path);
         }
-
-
-
 
         let images = [];
         for (const url of urls) {

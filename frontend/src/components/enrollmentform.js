@@ -24,7 +24,7 @@ const schema = Yup.object().shape({
 
 function Enrollform() {
 
-  
+
 
 
 
@@ -33,11 +33,11 @@ function Enrollform() {
     initialValues: {
       name: '',
       email: '',
-      description:'',
-      address:'',
-      phone:"",
-      category:""
-    
+      description: '',
+      address: '',
+      phone: "",
+      category: ""
+
     },
   });
 
@@ -47,25 +47,25 @@ function Enrollform() {
 
 
 
-        let sellerdata={
-          name:values.name,
-          address:values.address,
-          email:values.email,
-          phonenumber:values.phonenumber,
-          description:values.description,
-          category:values.category,
-        
-        }
-        
-            //  Use this part for sending data to api
+        let sellerdata = {
+          name: values.name,
+          address: values.address,
+          email: values.email,
+          phonenumber: values.phonenumber,
+          description: values.description,
+          category: values.category,
 
-            // currently document cannot be uploaded
-        
-        
-        
-        
+        }
+
+        //  Use this part for sending data to api
+
+        // currently document cannot be uploaded
+
+
+
+
       })}>
-      
+
         <TextInput
           required
           label="Email"
@@ -79,15 +79,15 @@ function Enrollform() {
           mt="sm"
           {...form.getInputProps('name')}
         />
-            <TextInput
+        <TextInput
           required
           label="Description"
           placeholder="about product"
           mt="sm"
           {...form.getInputProps('description')}
         />
-   
-          <TextInput
+
+        <TextInput
           required
           label="address"
           placeholder="shop address"
@@ -95,16 +95,16 @@ function Enrollform() {
           {...form.getInputProps('address')}
         />
         <NumberInput
-         required
+          required
           label="Phone number"
           placeholder="Enter a phone number"
           mt="sm"
           {...form.getInputProps('phone')}
-        /> 
+        />
 
-       
 
-          <TextInput
+
+        <TextInput
           required
           label="Document proof(google drive)"
           placeholder="category"
@@ -118,7 +118,7 @@ function Enrollform() {
           <Button type="submit">Submit</Button>
         </Group>
       </form>
-    
+
 
     </Box>
   );
